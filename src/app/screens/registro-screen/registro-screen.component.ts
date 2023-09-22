@@ -30,7 +30,8 @@ export class RegistroScreenComponent implements OnInit {
   }
 
   public registrar(){
-
+    console.log(this.user.datos);
+        
   }
 
   //Funciones para password  
