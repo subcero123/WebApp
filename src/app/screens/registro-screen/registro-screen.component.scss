@@ -72,7 +72,7 @@ mat-form-field{
 }
 
 //Estilos mat-input
-::ng-deep .mat-focused .mat-form-field-label {
+:host ::ng-deep .mat-focused .mat-form-field-label {
     /*change color of label*/
     text-align: left;
     font-family: Nexa!important;
@@ -81,8 +81,12 @@ mat-form-field{
     color: #E84150 !important;
     opacity: 1;
 }
+<<<<<<< HEAD
 
 ::ng-deep .mat-input-element{
+=======
+:host ::ng-deep .mat-input-element{
+>>>>>>> 3741c09a67a58f1e6f19df5108c374174e248fa7
     text-align: left;
     font-family: Nexa;
     font-size: 16px;
@@ -91,12 +95,93 @@ mat-form-field{
     color: #000000 !important;
 }
 
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     color: #000000;
     background-color: #FFFFFF;
 }
 
 //Cambiar focused de mat-input
-::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
     color: #000000!important;
+}
+
+.btn-primary{
+    width: 208px;
+    height: 48px;
+    background-color: #0092B8;
+    border-color: #0092B8;
+    border-radius: 8px;
+    opacity: 1;
+    //Fuente
+    text-align: center;
+    font-family: Nexa-Bold;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-left: 1rem;
+  }
+
+  .btn-danger{
+  width: 208px;
+  height: 48px;
+  background-color: #b80000;
+  border-color: #b80000;
+  border-radius: 8px;
+  opacity: 1;
+  //Fuente
+  text-align: center;
+  font-family: Nexa-Bold;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+.section-buttons{    
+    width: 100%;    
+    display: flex;    
+    flex-direction: row;    
+    justify-content: space-between;    
+    align-items: center;    
+    padding-bottom: 3rem;
+}
+
+.btn-primary {    
+    width: 208px;    
+    height: 48px;    
+    background-color: #0092B8!important;    
+    order-color: #0092B8!important;    
+    border-radius: 8px!important;    
+    opacity: 1;    
+    //Fuente    
+    text-align: center;    
+    font-family: Nexa-Bold;    
+    font-size: 16px;    
+    font-weight: bold;    
+    letter-spacing: 0px;    
+    color: #FFFFFF;    
+    opacity: 1;
+}
+
+.btn-primary:hover {    
+    background-color: #017895!important;    
+    border-color: #017895!important;    
+}
+
+.btn-danger{    
+    width: 208px;    
+    height: 48px;    
+    border-radius: 8px!important;    
+    opacity: 1;    
+    //Fuente    
+    text-align: center;    
+    font-family: Nexa-Bold;    
+    font-size: 16px;    
+    font-weight: bold;    
+    letter-spacing: 0px;    
+    color: #FFFFFF;    
+    opacity: 1;
 }
