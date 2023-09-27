@@ -15,13 +15,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
+import { RegistrarProductoScreenComponent } from './screens/registrar-producto-screen/registrar-producto-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginScreenComponent,
     RegistroScreenComponent,
-    HomeScreenComponent
+    HomeScreenComponent,
+    RegistrarProductoScreenComponent,
   ],
   imports: [
     BrowserModule,

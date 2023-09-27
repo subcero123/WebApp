@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { ProductosServiceService } from 'src/app/services/productos.service.service';
 declare var $:any;
 
 @Component({
-  selector: 'app-registro-screen',
-  templateUrl: './registro-screen.component.html',
-  styleUrls: ['./registro-screen.component.scss']
+  selector: 'app-registrar-producto-screen',
+  templateUrl: './registrar-producto-screen.component.html',
+  styleUrls: ['./registrar-producto-screen.component.scss']
 })
-export class RegistroScreenComponent implements OnInit {
+export class RegistrarProductoScreenComponent {
   //Variables del componente registro
   public editar: boolean = false;
   public user:any = {};
+  public producto:any = {};
  //Para contraseñas
   public hide_1: boolean = false;
   public hide_2: boolean = false;
@@ -20,11 +22,13 @@ export class RegistroScreenComponent implements OnInit {
   public errors:any ={};
 
   constructor(
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
+    private productosService: ProductosServiceService,
   ) { }
 
   ngOnInit(): void {
     this.user = this.usuariosService.esquemaUser();
+    this.producto = this.productosService.producto();
     //Imprimir datos en consola
     console.log("User: ", this.user);
   }

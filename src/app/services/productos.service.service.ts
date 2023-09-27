@@ -5,7 +5,7 @@ import { ErrorsService } from './tools/errors.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
+export class ProductosServiceService {
 
   constructor(
     private validatorService: ValidatorService,
@@ -26,6 +26,15 @@ export class UsuariosService {
       'edad': '',
       'telefono': '',
       'ocupacion': '',
+    }
+  }
+
+  public producto(){
+    return{
+      'id' : '',
+      'nombre_producto' : '',
+      "precio": '',
+      'departamento' : '',
     }
   }
 
