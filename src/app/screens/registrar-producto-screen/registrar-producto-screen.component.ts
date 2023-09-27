@@ -76,7 +76,7 @@ export class RegistrarProductoScreenComponent {
     //Validar
     this.errors = [];
 
-    this.errors = this.usuariosService.validarUsuario(this.user);
+    this.errors = this.productosService.validarProducto(this.producto);
     if(!$.isEmptyObject(this.errors)){
       return false;
     }

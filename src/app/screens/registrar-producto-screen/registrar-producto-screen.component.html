@@ -13,27 +13,27 @@
             <div class="body-registro">
                 <mat-form-field class="mat-input" appearance="outline">
                     <mat-label>ID</mat-label>
-                    <input matInput [(ngModel)]="user.email" placeholder="Escribe el ID">
+                    <input matInput [(ngModel)]="producto.id" placeholder="Escribe el ID">
                 </mat-form-field>
-                <div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div>
-                
+                <div *ngIf="errors.id" class="invalid-feedback">{{ errors.id }}</div>
+
                 <mat-form-field class="mat-input" appearance="outline">
                     <mat-label>Nombre del producto</mat-label>
-                    <input matInput [(ngModel)]="user.matricula" name="id" placeholder="Escribe nombre del producto">
+                    <input matInput [(ngModel)]="producto.nombre_producto" name="id" placeholder="Escribe nombre del producto">
                 </mat-form-field>
-                <div *ngIf="errors.matricula" class="invalid-feedback">{{ errors.matricula }}</div>
+                <div *ngIf="errors.nombre_producto" class="invalid-feedback">{{ errors.nombre_producto }}</div>
 
                 <mat-form-field class="mat-input" appearance="outline">
                     <mat-label>Precio</mat-label>
-                    <input matInput [(ngModel)]="user.first_name" placeholder="Escriba el precio">
+                    <input matInput [(ngModel)]="producto.precio" placeholder="Escriba el precio">
                 </mat-form-field>
-                <div *ngIf="errors.first_name" class="invalid-feedback">{{ errors.firstname }}</div>
+                <div *ngIf="errors.precio" class="invalid-feedback">{{ errors.precio }}</div>
 
                 <mat-form-field class="mat-input" appearance="outline">
                     <mat-label>Departamento</mat-label>
-                    <input matInput [(ngModel)]="user.last_name" placeholder="Escribe el Departamento">
+                    <input matInput [(ngModel)]="producto.departamento" placeholder="Escribe el Departamento">
                 </mat-form-field>
-                <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
+                <div *ngIf="errors.departamento" class="invalid-feedback">{{ errors.departamento }}</div>
 
                 <div class="section-buttons">  
                     <button class="btn btn-danger" (click)="regresar()">Cancelar</button>  
