@@ -17,6 +17,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { RegistrarProductoScreenComponent } from './screens/registrar-producto-screen/registrar-producto-screen.component';
 
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,7 @@ import { RegistrarProductoScreenComponent } from './screens/registrar-producto-s
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    HttpClientModule,
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
   ],
