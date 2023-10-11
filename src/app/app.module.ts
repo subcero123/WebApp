@@ -19,6 +19,7 @@ import { RegistrarProductoScreenComponent } from './screens/registrar-producto-s
 
 import { HttpClientModule } from '@angular/common/http'
 
+
 @NgModule({
   declarations: [
     AppComponent,

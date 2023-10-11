@@ -3,10 +3,10 @@ import { ValidatorService } from './tools/validator.service';
 import { ErrorsService } from './tools/errors.service';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { enviroment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'applcation/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 }
 
 @Injectable({
@@ -115,6 +115,6 @@ export class UsuariosService {
   //servicio para registrar un nuevo usuario
 
   public registrarUsuario (data: any): Observable <any>{
-    return this.http.post<any>(`${enviroment.url_api}/users/`,data, httpOptions);
+    return this.http.post<any>(`${environment.url_api}/users/`,data, httpOptions);
   }
 }
