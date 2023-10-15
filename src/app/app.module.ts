@@ -15,6 +15,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
+
 import { RegistrarProductoScreenComponent } from './screens/registrar-producto-screen/registrar-producto-screen.component';
 
 import { HttpClientModule } from '@angular/common/http'
@@ -39,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http'
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
+    MatTableModule,
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
   ],
