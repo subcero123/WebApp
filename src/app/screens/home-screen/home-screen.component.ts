@@ -24,6 +24,32 @@ export class HomeScreenComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   
+  // Para paginación
+// Paginador para Agentes
+public initPaginator() {
+  setTimeout(() => {
+    this.dataSource.paginator = this.paginator;
+    // console.log("Paginator: ", this.dataSourceIngresos.paginator);
+
+    // Modificar etiquetas del paginador a español
+    this.paginator._intl.itemsPerPageLabel = 'Registros por página';
+    this.paginator._intl.getRangeLabel = (page: number, pageSize: number, length: number) => {
+      if (length === 0 || pageSize === 0) {
+        return `0 / ${length}`;
+      }
+      length = Math.max(length, 0);
+      const startIndex = page * pageSize;
+      const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+      return `${startIndex + 1} - ${endIndex} de ${length}`;
+    };
+    this.paginator._intl.firstPageLabel = 'Primera página';
+    this.paginator._intl.lastPageLabel = 'Última página';
+    this.paginator._intl.previousPageLabel = 'Página anterior';
+    this.paginator._intl.nextPageLabel = 'Página siguiente';
+  }, 500);
+  // this.dataSourceIngresos.paginator = this.paginator;
+  }
+
 
   constructor(
     private facadeService: FacadeService,
@@ -40,6 +66,9 @@ export class HomeScreenComponent implements OnInit {
     if(this.token == ""){
       this.router.navigate([""]);
     }
+
+    this.obtenerUsuarios();
+    this.initPaginator();
   }
 
   //Obtener lista de usuarios
@@ -76,7 +105,16 @@ export class HomeScreenComponent implements OnInit {
     );
   }
 
+  public goEditar(idUser: number){
+    this.router.navigate(["registro/"+idUser])
+  }
+
+  public delete(idUser: number){
+
+  }
+
 }//Aquí cierra la clase principal
+
 
 //Esto va fuera de la llave que cierra la clase
 export interface DatosUsuario {

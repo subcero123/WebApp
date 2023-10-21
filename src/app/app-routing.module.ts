@@ -8,6 +8,7 @@ import { RegistrarProductoScreenComponent } from './screens/registrar-producto-s
 const routes: Routes = [
   { path: '', component: LoginScreenComponent, pathMatch: 'full' },
   { path: 'registro', component: RegistroScreenComponent, pathMatch: 'full' },
+  { path: 'registro/:id', component: RegistroScreenComponent, pathMatch: 'full' },
   { path: 'home', component: HomeScreenComponent, pathMatch: 'full' },
   { path: 'producto', component: RegistrarProductoScreenComponent, pathMatch: 'full'},
   

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { Location } from '@angular/common';
 declare var $:any;
 
 @Component({
@@ -12,6 +13,8 @@ export class RegistroScreenComponent implements OnInit {
   //Variables del componente registro
   public editar: boolean = false;
   public user:any = {};
+
+  public idUser: Number = 0;
  //Para contraseñas
   public hide_1: boolean = false;
   public hide_2: boolean = false;
@@ -22,17 +25,44 @@ export class RegistroScreenComponent implements OnInit {
 
   constructor(
     private usuariosService: UsuariosService,
-    private router: Router
+    private router: Router,
+    private location: Location,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     this.user = this.usuariosService.esquemaUser();
     //Imprimir datos en consola
+    // El primer if valida si existe un parámetro en la URL    
+    if (this.activatedRoute.snapshot.params['id'] !== undefined) {
+        this.editar = true;
+        // Asignamos a nuestra variable global el valor del ID que viene por la URL
+        this.idUser = this.activatedRoute.snapshot.params['id'];
+        console.log("ID User: ", this.idUser);
+        // Al iniciar la vista obtiene el usuario por su ID
+        this.obtenerUserByID();
+    }
     console.log("User: ", this.user);
   }
 
-  public regresar(){
+  public obtenerUserByID(){
+    this.usuariosService.getUserByID(this.idUser).subscribe(
+      (response)=>{
+        this.user = response;
+        //Agregamos valores faltantes
+        this.user.first_name = response.user.first_name;
+        this.user.last_name = response.user.last_name;
+        this.user.email = response.user.email;
+        this.user.fecha_nacimiento = response.fecha_nacimiento.split("T")[0];
+        console.log("Datos user: ", this.user);
+      }, (error)=>{
+        alert("No se pudieron obtener los datos del usuario a editar")
+      }
+    );
+  }
 
+  public regresar(){
+    this.location.back();
   }
 
   //Funciones para password
@@ -95,5 +125,9 @@ export class RegistroScreenComponent implements OnInit {
       this.user.password="";
       this.user.confirmar_password="";
     }
+  }
+
+  public actualizar(){
+    
   }
 }
