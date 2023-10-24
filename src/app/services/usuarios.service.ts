@@ -40,7 +40,7 @@ export class UsuariosService {
   }
 
   //Validación para el formulario
-  public validarUsuario(data: any){
+  public validarUsuario(data: any, editar: boolean){
     console.log("Validando user... ", data);
     let error: any = [];
 
@@ -64,12 +64,14 @@ export class UsuariosService {
       error['email'] = this.errorService.email;
     }
 
-    if(!this.validatorService.required(data["password"])){
-      error["password"] = this.errorService.required;
-    }
-
-    if(!this.validatorService.required(data["confirmar_password"])){
-      error["confirmar_password"] = this.errorService.required;
+    if(!editar){
+      if(!this.validatorService.required(data["password"])){
+        error["password"] = this.errorService.required;
+      }
+  
+      if(!this.validatorService.required(data["confirmar_password"])){
+        error["confirmar_password"] = this.errorService.required;
+      } 
     }
 
     if(!this.validatorService.required(data["fecha_nacimiento"])){
@@ -126,8 +128,15 @@ export class UsuariosService {
     return this.http.get<any>(`${environment.url_api}/lista-users/`, {headers:headers});
   }
 
+  //Obtener solo un usuario de acuerdo a su ID
   public getUserByID(idUser: Number){
     return this.http.get<any>(`${environment.url_api}/users/?id=${idUser}`, httpOptions);
+  }
+
+  public editarUsuario (data: any): Observable <any>{
+    var token = this.facadeService.getSessionToken();
+    var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+    return this.http.put<any>(`${environment.url_api}/users-edit/`, data, {headers:headers});
   }
   
 }

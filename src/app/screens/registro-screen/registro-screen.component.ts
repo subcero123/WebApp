@@ -104,7 +104,7 @@ export class RegistroScreenComponent implements OnInit {
     //Validar
     this.errors = [];
 
-    this.errors = this.usuariosService.validarUsuario(this.user);
+    this.errors = this.usuariosService.validarUsuario(this.user, false);
     if(!$.isEmptyObject(this.errors)){
       return false;
     }
@@ -128,6 +128,23 @@ export class RegistroScreenComponent implements OnInit {
   }
 
   public actualizar(){
-    
+    //Validar
+    this.errors = []
+
+    this.errors = this.usuariosService.validarUsuario(this.user, this.editar);
+    if(!$.isEmptyObject(this.errors)){
+      return false;
+    }
+    console.log("Paso la validacion");
+    this.usuariosService.editarUsuario(this.user).subscribe(
+      (response)=>{
+        alert("Usuario editado correctamente");
+        console.log("Usuario editado", response);
+        //Si se edito, entonces vamos al home
+        this.router.navigate(["home"]);
+      }, (error)=>{
+        alert("No se pudo editar")
+      }
+    );
   }
 }

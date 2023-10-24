@@ -22,11 +22,13 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { RegistrarProductoScreenComponent } from './screens/registrar-producto-screen/registrar-producto-screen.component';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { EliminarUserModalComponent } from './modals/eliminar-user-modal/eliminar-user-modal.component'
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http'
     RegistroScreenComponent,
     HomeScreenComponent,
     RegistrarProductoScreenComponent,
+    EliminarUserModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { HttpClientModule } from '@angular/common/http'
     MatTableModule,
     MatPaginatorModule,
     NgxMaskModule.forRoot(options),
+    MatDialogModule,
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
   ],
