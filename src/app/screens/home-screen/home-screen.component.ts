@@ -132,6 +132,7 @@ export class HomeScreenComponent implements OnInit {
         //Recargar página
         window.location.reload();
       }else{
+        alert("Usuario no eliminado ");
         console.log("No se eliminó el usuario");
         //alert("No se eliminó el usuario");
       }
